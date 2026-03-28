@@ -1,0 +1,61 @@
+body {
+  padding: 0px;
+  margin: 0px;
+}
+
+main {
+  justify-content: center;
+  display: flex;
+}
+
+.container {
+  display: flex;
+  margin-top: 180px;
+  border: 1px solid black;
+  gap: 10px;
+  border-radius: 10px;
+}
+
+.login-conten {
+  text-align: center;
+}
+
+button {
+  border-radius: 10px;
+  border: 1px solid black;
+  margin-bottom: 10px;
+  width: 150px;
+  height: 25px;
+}
+
+input {
+  border-radius: 10px;
+  border: 1px solid black;
+  display: block;
+  margin-bottom: 10px;
+  text-align: center;
+  width: 300px;
+  height: 25px;
+}
+
+#login-l {
+  padding: 8px;
+}
+
+#login-r {
+  padding: 8px;
+  background-color: orange;
+  color: white;
+}
+
+.dangnhap {
+  background-color: orange;
+  color: white;
+  width: 200px;
+  height: 25px;
+}
+
+a {
+  text-decoration: none;
+  color: green;
+}
