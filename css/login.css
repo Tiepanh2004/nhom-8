@@ -4,15 +4,15 @@ body {
 }
 
 main {
-  justify-content: center;
   display: flex;
+  justify-content: center;
 }
 
 .container {
   display: flex;
   margin-top: 180px;
-  border: 1px solid black;
   gap: 10px;
+  border: solid 1px;
   border-radius: 10px;
 }
 
@@ -21,41 +21,71 @@ main {
 }
 
 button {
-  border-radius: 10px;
-  border: 1px solid black;
-  margin-bottom: 10px;
-  width: 150px;
-  height: 25px;
+  border-radius: 15px;
 }
 
 input {
-  border-radius: 10px;
-  border: 1px solid black;
-  display: block;
-  margin-bottom: 10px;
-  text-align: center;
-  width: 300px;
-  height: 25px;
+  width: 95%;
+  height: 30px;
+  margin: 5px 0px;
+  border: none;
+  border-bottom: solid 1px;
+  padding-left: 8px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+h2 {
+  color: green;
+}
+
+.link-button {
+  width: 100%;
+}
+
+.login-link {
+  width: 150px;
+  height: 30px;
+}
+
+a {
+  color: green;
+  text-decoration: none;
+}
+
+#fogotpass {
+  margin-bottom: 20px;
+}
+
+.dangnhap {
+  margin: 30px 0px;
+  width: 280px;
+  height: 30px;
+  background-color: orange;
+  color: white;
+  border: none;
+}
+
+#login-r {
+  background-color: orange;
+  color: white;
+  padding: 8px;
+  border-radius: 0px 10px 10px 0px;
 }
 
 #login-l {
   padding: 8px;
 }
 
-#login-r {
-  padding: 8px;
-  background-color: orange;
-  color: white;
+h1 {
+  margin-top: 80px;
 }
 
-.dangnhap {
-  background-color: orange;
-  color: white;
-  width: 200px;
-  height: 25px;
-}
-
-a {
-  text-decoration: none;
-  color: green;
+.dangky {
+  border: solid 1px;
+  width: 60%;
+  height: 30px;
+  border-radius: 15px;
 }

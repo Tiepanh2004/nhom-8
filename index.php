@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Học cùng tôi</title>
+    <title>Hỗ trợ học tập trực tuyến</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="script/script.js"></script>
@@ -122,7 +122,7 @@ h1 {
                 <div class="nguoidung">
                     <a href="index.php?page_layout=Taikhoan"><img src="uploads/avatar.jpg" alt=""></a>
                     <span><?php echo $_SESSION['username'] ?></span>
-                    <button><a href="index.php?page_layout=Dangxuat">Đăng xuất</a></button>
+                    <button><a href="dangxuat.php">Đăng xuất</a></button>
                 </div>
             </header>
             <main>
@@ -132,9 +132,9 @@ h1 {
                         case 'Taikhoan':
                             include "taikhoan.php";
                             break;
-                        case 'Dangxuat':
-                            include "dangxuat.php";
-                            break;
+                        // case 'Dangxuat':
+                        //     include "dangxuat.php";
+                        //     break;
                         case 'Baihoc':
                             include "baihoc.php";
                             break;
