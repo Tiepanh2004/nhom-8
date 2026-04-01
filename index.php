@@ -138,14 +138,14 @@ h1 {
                         case 'Baihoc':
                             include "baihoc.php";
                             break;
-                        case 'Xembaihoc':
-                            include "xembh.php";
+                        case 'xembaihoc':
+                            include "xembaihoc.php";
                             break;
                         case 'Luyentap':
                             include "luyentap.php";
                             break;
-                        case 'Xembaitap':
-                            include "xembt.php";
+                        case 'xembaitap':
+                            include "xembaitap.php";
                             break;
                     }
                 } else {
