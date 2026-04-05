@@ -120,7 +120,8 @@ h1 {
                     </div>
                 </form>
                 <div class="nguoidung">
-                    <a href="index.php?page_layout=Taikhoan"><img src="uploads/avatar.jpg" alt=""></a>
+                    <a href="index.php?page_layout=Taikhoan"><img style="height: 40px; width: 50px"
+                            src="uploads/avatar.jpg" alt=""></a>
                     <span><?php echo $_SESSION['username'] ?></span>
                     <button><a href="dangxuat.php">Đăng xuất</a></button>
                 </div>

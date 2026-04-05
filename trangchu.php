@@ -10,6 +10,45 @@
 main {
     overflow: auto;
 }
+
+.danhsach-khoahoc {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.khoahoc-item {
+    width: 370px;
+    height: 220px;
+    border-radius: 10px;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.khoahoc-item h4 {
+    font-size: 28px;
+    margin: 0 0 25px 0;
+}
+
+.khoahoc-item p {
+    font-size: 18px;
+    margin: 0 0 25px 0;
+}
+
+.khoahoc-item button {
+    border: none;
+    padding: 10px 16px;
+    border-radius: 20px;
+    background: linear-gradient(to right, #6a5cff, #4cc9f0);
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
 </style>
 
 <body>
@@ -61,112 +100,39 @@ main {
                 </div>
             </div>
         </section>
+
         <section id="khoahoc">
             <h3>Khóa học</h3>
-            <div id="khoahoc-list1">
-                <div class="khoahoc-card1">
-                    <?php
-                    $sql = "SELECT * FROM `khoa_hoc` WHERE id = 1";
-                    $result = mysqli_query($conn, $sql);
-                    $row = mysqli_fetch_assoc($result);
-                    ?>
-                    <h4><?= $row['ten_khoa_hoc'] ?></h4>
-                    <?php
-                    $sql = "SELECT * FROM `bai_hoc` WHERE khoahoc_id = 1";
-                    $result = mysqli_query($conn, $sql);
-                    $tong = 0;
-                    while ($b = mysqli_fetch_array($result)) {
-                        $tong = $tong + 1;
-                    }
-                    ?>
-                    <p><?php echo $tong ?> bài học</p>
-                    <button onclick="xemthongtin(<?= $row['id'] ?>)">Xem chi tiết khóa học</a></button>
-                </div>
-                <div class="khoahoc-card2">
-                    <?php
-                    $sql = "SELECT * FROM `khoa_hoc` WHERE id = 2";
-                    $result = mysqli_query($conn, $sql);
-                    $row = mysqli_fetch_assoc($result);
-                    ?>
-                    <h4><?= $row['ten_khoa_hoc'] ?></h4>
-                    <?php
-                    $sql = "SELECT * FROM `bai_hoc` WHERE khoahoc_id = 2";
-                    $result = mysqli_query($conn, $sql);
-                    $tong = 0;
-                    while ($b = mysqli_fetch_array($result)) {
-                        $tong = $tong + 1;
-                    }
-                    ?>
-                    <p><?php echo $tong ?> bài học</p>
-                    <button onclick="xemthongtin(<?= $row['id'] ?>)">Xem chi tiết khóa học</a></button>
-                </div>
 
-                <div class="khoahoc-card3">
-                    <?php
-                    $sql = "SELECT * FROM `khoa_hoc` WHERE id = 3";
-                    $result = mysqli_query($conn, $sql);
-                    $row = mysqli_fetch_assoc($result);
-                    ?>
-                    <h4><?= $row['ten_khoa_hoc'] ?></h4>
-                    <?php
-                    $sql = "SELECT * FROM `bai_hoc` WHERE khoahoc_id = 3";
-                    $result = mysqli_query($conn, $sql);
-                    $tong = 0;
-                    while ($b = mysqli_fetch_array($result)) {
-                        $tong = $tong + 1;
-                    }
-                    ?>
-                    <p><?php echo $tong ?> bài học</p>
-                    <button onclick="xemthongtin(<?= $row['id'] ?>)">Xem chi tiết khóa học</a></button>
+            <div class="danhsach-khoahoc">
+                <?php
+                $sql = "SELECT * FROM `khoa_hoc` ORDER BY id DESC";
+                $result = mysqli_query($conn, $sql);
+
+                while ($row = mysqli_fetch_array($result)) {
+                    $khoahocId = $row['id'];
+
+                    $sql2 = "SELECT * FROM `bai_hoc` WHERE khoahoc_id = $khoahocId";
+                    $result2 = mysqli_query($conn, $sql2);
+                    $tongBaiHoc = mysqli_num_rows($result2);
+                ?>
+                <div class="khoahoc-item" style="background-image: url('<?php echo $row['img_url']; ?>');">
+                    <h4><?php echo $row['ten_khoa_hoc']; ?></h4>
+                    <p><?php echo $tongBaiHoc; ?> bài học</p>
+                    <button onclick="xemthongtin(<?php echo $row['id']; ?>)">Xem chi tiết khóa học</button>
                 </div>
-            </div>
-            <div id="khoahoc-list2">
-                <div class="khoahoc-card4">
-                    <?php
-                    $sql = "SELECT * FROM `khoa_hoc` WHERE id = 4";
-                    $result = mysqli_query($conn, $sql);
-                    $row = mysqli_fetch_assoc($result);
-                    ?>
-                    <h4><?= $row['ten_khoa_hoc'] ?></h4>
-                    <?php
-                    $sql = "SELECT * FROM `bai_hoc` WHERE khoahoc_id = 4";
-                    $result = mysqli_query($conn, $sql);
-                    $tong = 0;
-                    while ($b = mysqli_fetch_array($result)) {
-                        $tong = $tong + 1;
-                    }
-                    ?>
-                    <p><?php echo $tong ?> bài học</p>
-                    <button onclick="xemthongtin(<?= $row['id'] ?>)">Xemm chi tiết khóa học</a></button>
-                </div>
-                <div class="khoahoc-card5">
-                    <?php
-                    $sql = "SELECT * FROM `khoa_hoc` WHERE id = 5";
-                    $result = mysqli_query($conn, $sql);
-                    $row = mysqli_fetch_assoc($result);
-                    ?>
-                    <h4><?= $row['ten_khoa_hoc'] ?></h4>
-                    <?php
-                    $sql = "SELECT * FROM `bai_hoc` WHERE khoahoc_id = 5";
-                    $result = mysqli_query($conn, $sql);
-                    $tong = 0;
-                    while ($b = mysqli_fetch_array($result)) {
-                        $tong = $tong + 1;
-                    }
-                    ?>
-                    <p><?php echo $tong ?> bài học</p>
-                    <button onclick="xemthongtin(<?= $row['id'] ?>)">Xemm chi tiết khóa học</a></button>
-                </div>
+                <?php
+                }
+                ?>
             </div>
         </section>
+
         <div id="thong-tin" style="display:none">
             <div id="thongtin-content">
-                <div id="noidung-khoahoc">
-
-                </div>
+                <div id="noidung-khoahoc"></div>
             </div>
-
         </div>
+
         <script>
         function xemthongtin(idkhoa) {
             document.getElementById("khoahoc").style.display = "none";
