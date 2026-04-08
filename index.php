@@ -56,6 +56,20 @@ h1 {
                     ";
             }
             ?>
+            <?php
+            if ($_SESSION['vaitro'] == 1) {
+                echo "
+                        <ul class='menu'>
+                            <a href='Admin/index.php'>
+                                <li class='menu-danhmuc'>
+                                    <i class='fa-solid fa-book'></i>
+                                    <span>Trang Admin</span>
+                                </li>
+                            </a>
+                        </ul>
+                    ";
+            }
+            ?>
             <ul class="menu">
                 <a href="index.php?page_layout=Baihoc">
                     <li class="menu-danhmuc">

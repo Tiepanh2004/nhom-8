@@ -26,7 +26,7 @@
                     <p>---Hoặc---</p>
                 </div>
                 <div class="login-conten" id="login-form">
-                    <form action="regiter.php" method="post">
+                    <form action="register.php" method="post">
                         <div class="input-contain">
                             <div>
                                 <input type="text" placeholder="Tên đầy đủ" name="ten">
@@ -34,6 +34,9 @@
 
                             <input type="email" placeholder="Địa chỉ email" name="email">
                             <input type="password" placeholder="Mật khẩu" name="password">
+                            <input type="namsinh" placeholder="Năm sinh" name="namsinh">
+                            <input type="sdt" placeholder="Số điện thoại" name="sdt">
+                            <input type="tendangnhap" placeholder="Tên đăng nhập" name="tendangnhap">
                         </div>
                         <button class="dangnhap" type="submit">Đăng ký</button>
                     </form>
@@ -41,7 +44,10 @@
                     if (
                         !empty($_POST['ten']) &&
                         !empty($_POST['email']) &&
-                        !empty($_POST['password'])
+                        !empty($_POST['password']) &&
+                        !empty($_POST['namsinh']) &&
+                        !empty($_POST['sdt']) &&
+                        !empty($_POST['tendangnhap'])
                     ) {
 
                         $sql = "SELECT * FROM `nguoi_dung`";
@@ -61,11 +67,17 @@
                             $ten = $_POST['ten'];
                             $email = $_POST['email'];
                             $password = $_POST['password'];
+                            $namsinh = $_POST['namsinh'];
+                            $sdt = $_POST['sdt'];
+                            $tendangnhap = $_POST['tendangnhap'];
 
-                            $sql = "INSERT INTO `nguoi_dung`(`ho_ten`,`email`, `mat_khau`, `avatar`,`vaitro_id`) 
-                                VALUES ('$ten','$email','$password','uploads/avatar.jpg','3')";
+                            $sql = "INSERT INTO `nguoi_dung`(`ho_ten`, `nam_sinh`, `sdt` , `email`, `mat_khau`, `avatar`,`vaitro_id`, `ten_dang_nhap`) 
+                                VALUES ('$ten', '$namsinh' , '$sdt','$email','$password','uploads/avatar.jpg','3', '$tendangnhap')";
                             $result = mysqli_query($conn, $sql);
-                            header('location: login.php');
+                            echo "<script>
+                                alert('Bạn đã đăng ký tài khoản thành công!');
+                                window.location.href = 'login.php';
+                            </script>";
                         }
                     } else {
                         echo "Hãy điền đầy đủ thông tin!";

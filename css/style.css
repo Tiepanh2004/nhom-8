@@ -2,7 +2,7 @@ body {
   margin: 0;
 }
 
-p1 {
+.p1 {
   position: absolute;
   top: 70px;
   left: 19px;
@@ -314,7 +314,7 @@ button:hover {
 }
 
 h4 {
-  font-size: 26px;
+  /* font-size: 26px; */
   font-weight: 700;
 }
 
