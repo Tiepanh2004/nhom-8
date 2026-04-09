@@ -26,14 +26,11 @@ h2 {
         <div onclick="xembaitap(<?php echo $idkhoa ?>)" style=" border: solid 3px;">
             <p>Tên khóa học: <?php echo $khoa['ten_khoa_hoc'] ?></p>
             <?php
-                $sqlbh = "SELECT * FROM `bai_hoc` where khoahoc_id=$idkhoa";
-                $rebh = mysqli_query($conn, $sqlbh);
-                $tong = 0;
-                while ($b = mysqli_fetch_array($rebh)) {
-                    $tong = $tong + 1;
-                }
+                $sqlbt = "SELECT * FROM `bai_tap` where id_khoa_hoc=$idkhoa";
+                $rebt = mysqli_query($conn, $sqlbt);
+                $tong = mysqli_num_rows($rebt);
                 ?>
-            <p>Số bài học: <?php echo $tong ?> bài</p>
+            <p>Số câu luyên tập: <?php echo $tong ?> câu</p>
             <p>Mô tả: <?php echo $khoa['mo_ta'] ?></p>
         </div>
         <?php

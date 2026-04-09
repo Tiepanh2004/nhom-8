@@ -29,7 +29,7 @@ h2 {
             <?php
                 $sqlbh = "SELECT * FROM `bai_hoc` where khoahoc_id=$idkhoa";
                 $rebh = mysqli_query($conn, $sqlbh);
-                $baihoc = count(mysqli_fetch_array($rebh));
+                $baihoc = mysqli_num_rows($rebh);
                 ?>
             <p>Số bài học: <?php echo $baihoc ?> bài</p>
             <p>Mô tả: <?php echo $khoa['mo_ta'] ?></p>
