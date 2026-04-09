@@ -1,0 +1,25 @@
+#noidung-khoahoc {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  flex-direction: column;
+  background-color: white;
+  width: 50%;
+  height: 450px;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+.nutdong {
+  width: 100px;
+}
+
+#noidung-khoahoc p {
+  color: black;
+  font-size: 15px;
+}
+
+#thongtin-content {
+  display: flex;
+  justify-content: center;
+}
