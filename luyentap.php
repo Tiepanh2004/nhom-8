@@ -4,89 +4,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Danh sách luyện tập</title>
+    <title>Luyện tập</title>
     <style>
         table {
             width: 100%;
-            border-collapse: collapse;
-        }
-
-        th {
-            padding: 8px;
-            text-align: center;
-        }
-
-        td {
-            padding: 8px;
-            text-align: center;
         }
 
         .btn {
             color: black;
             border: 1px solid black;
-            padding: 2px 6px;
+            padding: 0 5px;
             border-radius: 5px;
-            text-decoration: none;
-            display: inline-block; /* Giúp 2 nút Sửa và Xóa nằm ngay ngắn */
-            margin: 2px 0;
-        }
-
-        .link-them {
-            display: inline-block;
-            margin-bottom: 10px;
-            text-decoration: none;
-            color: black;
         }
     </style>
 </head>
 
 <body>
-
-    <h1>Danh sách luyện tập</h1>
-    
-    <a class="link-them" href="index.php?page_layout=Themcauhoi">Thêm câu hỏi</a>
-
-    <table border="1">
+    <h1>Danh sách bài tập</h1>
+    <a class="btn" href="index.php?page_layout=thembailuyentap">Thêm bài luyện tập</a>
+    <table border=1>
         <tr>
-            <th>ID</th>
-            <th>Câu hỏi</th>
-            <th>Đáp án A</th>
-            <th>Đáp án B</th>
-            <th>Đáp án C</th>
-            <th>Đáp án D</th>
-            <th>Đáp án đúng</th>
-            <th>Khóa học</th>
-            <th>Chức năng</th>
+            <th>Ma bai tap</th>
+            <th>Noi dung</th>
+            <th>Dap an 1</th>
+            <th>Dap an 2</th>
+            <th>Dap an 3</th>
+            <th>Dap an 4</th>
+            <th>Khoa hoc</th>
+            <th>Dap an dung</th>
+            <th>Chuc nang</th>
         </tr>
         <?php
-        // Nhúng file kết nối Database
-        include 'connect.php';
-
-        // Viết câu lệnh SQL lấy dữ liệu
-        $sql = "SELECT bt.*, kh.ten_khoa_hoc FROM `bai_tap` bt JOIN `khoa_hoc` kh ON bt.id_khoa_hoc = kh.id";
+        include('../connect.php');
+        $sql = "SELECT bt.* , kh.ten_khoa_hoc 
+                FROM bai_tap bt 
+                join khoa_hoc kh on bt. id_khoa_hoc = kh.id";
         $result = mysqli_query($conn, $sql);
-
-        // Vòng lặp in dữ liệu ra bảng
-        while ($row = mysqli_fetch_assoc($result)) {
-            ?>
+        while ($row = mysqli_fetch_array($result)) {
+        ?>
             <tr>
-                <td><?= $row['id'] ?></td>
-                <td><?= htmlspecialchars($row['noi_dung']) ?></td>
-                <td><?= htmlspecialchars($row['dap_an_1']) ?></td>
-                <td><?= htmlspecialchars($row['dap_an_2']) ?></td>
-                <td><?= htmlspecialchars($row['dap_an_3']) ?></td>
-                <td><?= htmlspecialchars($row['dap_an_4']) ?></td>
-                <td><?= $row['dap_an_dung'] ?></td>
-                <td><?= htmlspecialchars($row['ten_khoa_hoc']) ?></td>
+                <td><?php echo $row['id'] ?></td>
+                <td><?php echo htmlspecialchars($row['noi_dung']) ?></td>
+                <td><?php echo htmlspecialchars($row['dap_an_1']) ?></td>
+                <td><?php echo htmlspecialchars($row['dap_an_2']) ?></td>
+                <td><?php echo htmlspecialchars($row['dap_an_3']) ?></td>
+                <td><?php echo htmlspecialchars($row['dap_an_4']) ?></td>
+                <td><?php echo $row['ten_khoa_hoc'] ?></td>
+                <td><?php echo $row['dap_an_dung'] ?></td>
                 <td>
-                    <a class="btn" href="index.php?page_layout=Suabaitap&id=<?= $row['id'] ?>">Sửa</a><br>
-                    <a class="btn" href="index.php?page_layout=Xoabaitap&id=<?= $row['id'] ?>"
-                        onclick="return confirm('Bạn có chắc muốn xóa câu hỏi này không?')">Xóa</a>
+                    <a class="btn" href="index.php?page_layout=capnhatbailuyentap&id=<?php echo $row['id'] ?>">Cap
+                        nhat</a>
+                    <a class="btn" href="index.php?page_layout=xoabailuyentap&id=<?php echo $row['id'] ?>">Xoa</a>
                 </td>
             </tr>
-        <?php } ?>
+        <?php
+        }
+        ?>
     </table>
-
 </body>
 
 </html>
